@@ -9,50 +9,50 @@
     <title>Triangle Calculator</title>
 </head>
 
-<body class=" bg-black">
-    <div class="lg:hidden flex justify-center items-center h-screen">
+<body class="bg-black">
+    <div class="md:hidden flex justify-center items-center h-screen">
         <h1 class="text-4xl text-white">Open on laptop</h1>
     </div>
-    <div class="lg:flex lg:justify-center  hidden">
-        <div class="px-10">
-            <h1 class="text-center text-4xl pt-5 text-white">Triangle Calculator</h1>
-            <div class="my-5">
-                <h1 class="text-md px-2 text-white">Enter 3 angle(degree) and only 1 side(unit).</h1>
-                <input class="px-5 py-2 m-2 rounded-lg" type="text" id="angle1" placeholder="Angle A">
-                <input class="px-5 py-2 m-2 rounded-lg" type="text" id="angle2" placeholder="Angle B">
-                <input class="px-5 py-2 m-2 rounded-lg" type="text" id="angle3" placeholder="Angle C">
+    <div class="md:flex lg:justify-around md:justify-between md:items-center hidden">
+        <div class="p-2 h-screen w-1/2">
+            <h1 class="py-4 text-3xl lg:text-4xl text-white">Triangle Calculator</h1>
+            <div class="my-2">
+                <h1 class="text-sm lg:text-md px-2 text-white">Enter 3 angle(degree).</h1>
+                <input class="lg:w-20 w-14 px-2 py-1 m-2 rounded-lg placeholder:text-center placeholder:italic" type="text" id="angle1" placeholder="∠ A">
+                <input class="lg:w-20 w-14 px-2 py-1 m-2 rounded-lg placeholder:text-center placeholder:italic" type="text" id="angle2" placeholder="∠ B">
+                <input class="lg:w-20 w-14 px-2 py-1 m-2 rounded-lg placeholder:text-center placeholder:italic" type="text" id="angle3" placeholder="∠ C">
             </div>
-            <div class="my-5">
-                <input class="px-5 py-2 m-2 rounded-lg" type="text" id="side1" placeholder="Side A">
-                <input class="px-5 py-2 m-2 rounded-lg" type="text" id="side2" placeholder="Side B">
-                <input class="px-5 py-2 m-2 rounded-lg" type="text" id="side3" placeholder="Side C">
+            <div class="my-2">
+                <h1 class="text-sm lg:text-md px-2 text-white">Enter only 1 side(unit).</h1>
+                <input class="lg:w-20 w-14 px-2 py-1 m-2 rounded-lg placeholder:text-center placeholder:text-sm placeholder:italic" type="text" id="side1" placeholder="Side A">
+                <input class="lg:w-20 w-14 px-2 py-1 m-2 rounded-lg placeholder:text-center placeholder:text-sm placeholder:italic" type="text" id="side2" placeholder="Side B">
+                <input class="lg:w-20 w-14 px-2 py-1 m-2 rounded-lg placeholder:text-center placeholder:text-sm placeholder:italic" type="text" id="side3" placeholder="Side C">
             </div>
-            <div class="px-2 flex gap-5">
+            <div class="p-2 flex gap-5">
 
-                <button class="bg-blue-500 text-white px-5 py-2 rounded-lg" id="button">Check</button>
-                <button class="bg-red-500 text-white px-5 py-2 rounded-lg" id="reset">Reset</button>
+                <button class="bg-blue-500 text-white lg:w-20 w-14 px-2 py-1 rounded-lg" id="button">Check</button>
+                <button class="bg-red-500 text-white lg:w-20 w-14 px-2 py-1 rounded-lg" id="reset">Reset</button>
             </div>
 
 
-            <div class="main px-2">
-                <div class="text-white text-2xl py-5" id="sides">
+            <div class="main py-2">
+                <div class="text-white text-xl lg:text-2xl py-2" id="sides">
 
                 </div>
-                <div class="text-white text-2xl py-5" id="sums">
+                <div class="text-white text-xl lg:text-2xl py-2" id="sums">
 
                 </div>
-                <div class="text-white text-2xl py-5" id="result">
+                <div class="text-white text-xl lg:text-2xl py-2" id="result">
 
                 </div>
             </div>
             <footer class="text-neutral-500 fixed bottom-4 text-sm">
-                Note: The created triangle sometimes goes outside this box if the value of any side is greater than 60
-                units.
+                Note: The created triangle may sometimes go outside this box if the value of any side exceeds 40-45 units.
             </footer>
         </div>
 
-        <canvas class="m-2 text-white border border-2 rounded-3xl" id="triangleCanvas" width="700"
-            height="700"></canvas>
+        <canvas class="bg-neutral-900 text-white" id="triangleCanvas" width="500"
+            height="500"></canvas>
     </div>
 
     <script src="script.js"></script>

@@ -21,7 +21,7 @@ function drawTriangle(a, b, c, angleA, angleB, angleC) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     const scaleFactor = 10;
-    const ax = 50, ay = 650;
+    const ax = 25, ay = 475;
     const bx = ax + a * scaleFactor, by = ay;
     const angleARad = (Math.PI - ((angleB + angleA) * Math.PI / 180));
     const cx = ax + b * scaleFactor * Math.cos(angleARad);
@@ -39,7 +39,7 @@ function drawTriangle(a, b, c, angleA, angleB, angleC) {
 
     ctx.fillStyle = "white";
     ctx.font = "14px Arial";
-    ctx.fillText("∠C", ax - 10, ay + 10);
+    ctx.fillText("∠C", ax - 15, ay + 15);
     ctx.fillText("∠B", bx + 5, by + 10);
     ctx.fillText("∠A", cx - 10, cy - 10);
 }
@@ -117,7 +117,7 @@ button.addEventListener('click', () => {
 
 
     if (isNaN(angle1Value) || isNaN(angle2Value) || isNaN(angle3Value)) {
-        result.innerHTML = `<h1 class="text-red-500">Please enter valid numeric values.</h1>`;
+        result.innerHTML = `<h1 class="text-red-500 text-lg">Warning: Please enter valid numeric value. Characters or empty values are not allowed!</h1>`;
         return;
     }
     const sum = angle1Value + angle2Value + angle3Value;
@@ -129,34 +129,58 @@ button.addEventListener('click', () => {
 
                 sideTwo = sideOne * Math.sin(radian(angle2Value)) / Math.sin(radian(angle1Value));
                 sideThree = sideOne * Math.sin(radian(angle3Value)) / Math.sin(radian(angle1Value));
-                sides.innerHTML = `<h1>Side A = ${sideOne}</h1><h1>Side B = ${Math.abs(sideTwo.toFixed(4))}</h1><h1>Side C = ${Math.abs(sideThree.toFixed(4))}</h1>`
+                sides.innerHTML = `
+                <h1 class="text-neutral-400">Side A = <span class="text-white font-semibold">${sideOne}</span> u</h1>
+                <h1 class="text-neutral-400">Side B = <span class="text-white font-semibold">${Math.abs(sideTwo.toFixed(4))}</span> u</h1>
+                <h1 class="text-neutral-400">Side C = <span class="text-white font-semibold">${Math.abs(sideThree.toFixed(4))}</span> u</h1>
+                `
 
                 const area = (sideOne * sideTwo * Math.sin(radian(angle3Value))) / 2
                 const perimeter = sideOne + sideTwo + sideThree
                 const semiperimeter = (sideOne + sideTwo + sideThree) / 2
-                sums.innerHTML = `<h1>Area = ${Math.abs(area.toFixed(4))}</h1><h1>Perimeter = ${Math.abs(perimeter.toFixed(4))}</h1><h1>Semiperimeter = ${Math.abs(semiperimeter.toFixed(4))}</h1>`;
+                sums.innerHTML = `
+                <h1 class="text-neutral-400">Area = <span class="text-white font-semibold">${Math.abs(area.toFixed(4))}</span> u&#178;</h1>
+                <h1 class="text-neutral-400">Perimeter = <span class="text-white font-semibold">${Math.abs(perimeter.toFixed(4))}</span> u</h1>
+                <h1 class="text-neutral-400">Semiperimeter = <span class="text-white font-semibold">${Math.abs(semiperimeter.toFixed(4))}</span> u</h1>
+                `;
             }
             else if (sideTwo) {
 
                 sideOne = sideTwo * Math.sin(radian(angle1Value)) / Math.sin(radian(angle2Value));
                 sideThree = sideTwo * Math.sin(radian(angle3Value)) / Math.sin(radian(angle2Value));
-                sides.innerHTML = `<h1>Side A = ${Math.abs(sideOne.toFixed(4))}</h1><h1>Side B = ${sideTwo}</h1> <h1>Side C = ${Math.abs(sideThree.toFixed(4))}</h1>`
+                sides.innerHTML = `
+                <h1 class="text-neutral-400">Side A = <span class="text-white font-semibold">${Math.abs(sideOne.toFixed(4))}</span> u</h1>
+                <h1 class="text-neutral-400">Side B = <span class="text-white font-semibold">${sideTwo}</span> u</h1>
+                <h1 class="text-neutral-400">Side C = <span class="text-white font-semibold">${Math.abs(sideThree.toFixed(4))}</span> u</h1>
+                `
 
                 const area = (sideOne * sideTwo * Math.sin(radian(angle3Value))) / 2
                 const perimeter = sideOne + sideTwo + sideThree
                 const semiperimeter = (sideOne + sideTwo + sideThree) / 2
-                sums.innerHTML = `<h1>Area = ${Math.abs(area.toFixed(4))}</h1><h1>Perimeter = ${Math.abs(perimeter.toFixed(4))}</h1><h1>Semiperimeter = ${Math.abs(semiperimeter.toFixed(4))}</h1>`;
+                sums.innerHTML = `
+                <h1 class="text-neutral-400">Area = <span class="text-white font-semibold">${Math.abs(area.toFixed(4))}</span> u&#178;</h1>
+                <h1 class="text-neutral-400">Perimeter = <span class="text-white font-semibold">${Math.abs(perimeter.toFixed(4))}</span> u</h1>
+                <h1 class="text-neutral-400">Semiperimeter = <span class="text-white font-semibold">${Math.abs(semiperimeter.toFixed(4))}</span> u</h1>
+                `;
             }
             else if (sideThree) {
 
                 sideTwo = sideThree * Math.sin(radian(angle2Value)) / Math.sin(radian(angle3Value));
                 sideOne = sideThree * Math.sin(radian(angle1Value)) / Math.sin(radian(angle3Value));
-                sides.innerHTML = `<h1>Side A = ${Math.abs(sideOne.toFixed(4))}</h1><h1>Side B = ${Math.abs(sideTwo.toFixed(4))}</h1> <h1>Side C = ${sideThree}</h1>`
+                sides.innerHTML = `
+                <h1 class="text-neutral-400">Side A = <span class="text-white font-semibold">${Math.abs(sideOne.toFixed(4))}</span> u</h1>
+                <h1 class="text-neutral-400">Side B = <span class="text-white font-semibold">${Math.abs(sideTwo.toFixed(4))}</span> u</h1>
+                <h1 class="text-neutral-400">Side C = <span class="text-white font-semibold">${sideThree} </span> u</h1>
+                `
 
                 const area = (sideOne * sideTwo * Math.sin(radian(angle3Value))) / 2
                 const perimeter = sideOne + sideTwo + sideThree
                 const semiperimeter = (sideOne + sideTwo + sideThree) / 2
-                sums.innerHTML = `<h1>Area = ${Math.abs(area.toFixed(4))}</h1><h1>Perimeter = ${Math.abs(perimeter.toFixed(4))}</h1><h1>Semiperimeter = ${Math.abs(semiperimeter.toFixed(4))}</h1>`;
+                sums.innerHTML = `
+                <h1 class="text-neutral-400">Area = <span class="text-white font-semibold">${Math.abs(area.toFixed(4))}</span> u&#178;</h1>
+                <h1 class="text-neutral-400">Perimeter = <span class="text-white font-semibold">${Math.abs(perimeter.toFixed(4))}</span> u</h1>
+                <h1 class="text-neutral-400">Semiperimeter = <span class="text-white font-semibold">${Math.abs(semiperimeter.toFixed(4))}</span> u</h1>
+                `;
             }
             drawTriangle(sideOne, sideTwo, sideThree, angle1Value, angle2Value, angle3Value);
         }
@@ -166,40 +190,40 @@ button.addEventListener('click', () => {
 
         // For Equilateral Triangle
         if (angle1Value === 60 && angle2Value === 60 && angle3Value === 60) {
-            result.innerHTML = `<h1>This is an Equilateral triangle</h1>`;
+            result.innerHTML = `<h1 class="italic">Equilateral Triangle</h1>`;
         }
         // For every Right angle triangle
         else if (angle1Value === 90 || angle2Value === 90 || angle3Value === 90) {
             if (angle1Value === 90 && angle2Value === 45 && angle3Value === 45 || angle2Value === 90 && angle1Value === 45 && angle3Value === 45 || angle3Value === 90 && angle2Value === 45 && angle1Value === 45) {
-                result.innerHTML = `<h1>This is a Right Isosceles triangle</h1>`;
+                result.innerHTML = `<h1 class="italic">Right Isosceles Triangle</h1>`;
             }
             else {
-                result.innerHTML = `<h1>This is a Right Scalene triangle</h1>`;
+                result.innerHTML = `<h1 class="italic">Right Scalene Triangle</h1>`;
             }
         }
         // For Isosceles Triangle
         else if (angle1Value === angle2Value || angle2Value === angle3Value || angle3Value === angle1Value) {
             if (angle1Value > 90 && angle2Value === angle3Value || angle2Value > 90 && angle1Value === angle3Value || angle3Value > 90 && angle2Value === angle1Value) {
-                result.innerHTML = `<h1>This is an Obtuse Isosceles triangle</h1>`;
+                result.innerHTML = `<h1 class="italic">Obtuse Isosceles Triangle</h1>`;
             }
             else if (angle1Value < 90 && angle2Value === angle3Value || angle2Value < 90 && angle1Value === angle3Value || angle3Value < 90 && angle2Value === angle1Value) {
-                result.innerHTML = `<h1>This is an Acute Isosceles triangle</h1>`;
+                result.innerHTML = `<h1 class="italic">Acute Isosceles Triangle</h1>`;
             }
         }
         // For Scalene Triangle 
         else if (angle1Value !== angle2Value && angle2Value !== angle3Value && angle3Value !== angle1Value) {
 
             if (angle1Value > 90 || angle2Value > 90 || angle3Value > 90) {
-                result.innerHTML = `<h1>This is an Obtuse Scalene triangle</h1>`;
+                result.innerHTML = `<h1 class="italic">Obtuse Scalene Triangle</h1>`;
             }
             else if (angle1Value < 90 && angle2Value < 90 && angle3Value < 90) {
-                result.innerHTML = `<h1>This is an Acute Scalene triangle</h1>`;
+                result.innerHTML = `<h1 class="italic">Acute Scalene Triangle</h1>`;
             }
         }
     }
 
     // Invalid sum of all angles
     else {
-        result.innerHTML = `<h1 class="text-red-500">Please give angles properly and at least one side.</h1>`;
+        result.innerHTML = `<h1 class="text-red-500 text-lg">Warning: The total sum of all given angles is not equal to 180 degrees, or the side value is missing!</h1>`;
     }
 });
