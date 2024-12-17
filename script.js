@@ -118,6 +118,8 @@ button.addEventListener('click', () => {
 
     if (isNaN(angle1Value) || isNaN(angle2Value) || isNaN(angle3Value)) {
         result.innerHTML = `<h1 class="text-red-500 text-lg">Warning: Please enter valid numeric value. Characters or empty values are not allowed!</h1>`;
+        sides.innerHTML = ''
+        sums.innerHTML = ''
         return;
     }
     const sum = angle1Value + angle2Value + angle3Value;
@@ -225,5 +227,7 @@ button.addEventListener('click', () => {
     // Invalid sum of all angles
     else {
         result.innerHTML = `<h1 class="text-red-500 text-lg">Warning: The total sum of all given angles is not equal to 180 degrees, or the side value is missing!</h1>`;
+        sides.innerHTML = ''
+        sums.innerHTML = ''
     }
 });
