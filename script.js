@@ -190,34 +190,34 @@ button.addEventListener('click', () => {
 
         // For Equilateral Triangle
         if (angle1Value === 60 && angle2Value === 60 && angle3Value === 60) {
-            result.innerHTML = `<h1 class="italic">Equilateral Triangle</h1>`;
+            result.innerHTML = `<h1 class="italic underline underline-offset-2 lg:text-3xl">Equilateral Triangle</h1>`;
         }
         // For every Right angle triangle
         else if (angle1Value === 90 || angle2Value === 90 || angle3Value === 90) {
             if (angle1Value === 90 && angle2Value === 45 && angle3Value === 45 || angle2Value === 90 && angle1Value === 45 && angle3Value === 45 || angle3Value === 90 && angle2Value === 45 && angle1Value === 45) {
-                result.innerHTML = `<h1 class="italic">Right Isosceles Triangle</h1>`;
+                result.innerHTML = `<h1 class="italic underline underline-offset-2 lg:text-3xl">Right Isosceles Triangle</h1>`;
             }
             else {
-                result.innerHTML = `<h1 class="italic">Right Scalene Triangle</h1>`;
+                result.innerHTML = `<h1 class="italic underline underline-offset-2 lg:text-3xl">Right Scalene Triangle</h1>`;
             }
         }
         // For Isosceles Triangle
         else if (angle1Value === angle2Value || angle2Value === angle3Value || angle3Value === angle1Value) {
             if (angle1Value > 90 && angle2Value === angle3Value || angle2Value > 90 && angle1Value === angle3Value || angle3Value > 90 && angle2Value === angle1Value) {
-                result.innerHTML = `<h1 class="italic">Obtuse Isosceles Triangle</h1>`;
+                result.innerHTML = `<h1 class="italic underline underline-offset-2 lg:text-3xl">Obtuse Isosceles Triangle</h1>`;
             }
             else if (angle1Value < 90 && angle2Value === angle3Value || angle2Value < 90 && angle1Value === angle3Value || angle3Value < 90 && angle2Value === angle1Value) {
-                result.innerHTML = `<h1 class="italic">Acute Isosceles Triangle</h1>`;
+                result.innerHTML = `<h1 class="italic underline underline-offset-2 lg:text-3xl">Acute Isosceles Triangle</h1>`;
             }
         }
         // For Scalene Triangle 
         else if (angle1Value !== angle2Value && angle2Value !== angle3Value && angle3Value !== angle1Value) {
 
             if (angle1Value > 90 || angle2Value > 90 || angle3Value > 90) {
-                result.innerHTML = `<h1 class="italic">Obtuse Scalene Triangle</h1>`;
+                result.innerHTML = `<h1 class="italic underline underline-offset-2 lg:text-3xl">Obtuse Scalene Triangle</h1>`;
             }
             else if (angle1Value < 90 && angle2Value < 90 && angle3Value < 90) {
-                result.innerHTML = `<h1 class="italic">Acute Scalene Triangle</h1>`;
+                result.innerHTML = `<h1 class="italic underline underline-offset-2 lg:text-3xl">Acute Scalene Triangle</h1>`;
             }
         }
     }
